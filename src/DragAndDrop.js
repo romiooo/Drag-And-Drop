@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./DragAndDrop.css";
+
 const DragAndDrop = () => {
   const [draggable, setDraggable] = useState([
     {
@@ -42,10 +43,10 @@ const DragAndDrop = () => {
     let id = e.dataTransfer.getData("id");
     let currentData = draggable.find((item) => item.name == id);
     let newDragabble = [...draggable].filter((item) => item.name != id);
-    let newArr = [...droppable].concat(currentData);
-    console.log(currentData, newDragabble, newArr);
+    let newDropable = [...droppable].concat(currentData);
+    console.log(currentData, newDragabble, newDropable);
     setDraggable(newDragabble);
-    setDroppable(newArr);
+    setDroppable(newDropable);
   };
 
   return (
