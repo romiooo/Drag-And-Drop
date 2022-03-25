@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 const DragAndDrop = () => {
-  const [draggable, setdraggable] = useState([
+  const [draggable, setDraggable] = useState([
     {
       src: "https://images.unsplash.com/photo-1530517903273-3d60130ce0de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       name: "Lotus",
@@ -27,31 +27,25 @@ const DragAndDrop = () => {
         name:"Marigold"
     }
   ]);
-  const [droppable, setdroppable] = useState([]);
+  const [droppable, setDroppable] = useState([]);
 
   const onDragStart = (e, id) => {
     e.dataTransfer.setData("id", id);
-
-    console.log("dragStart:", id);
   };
 
   const onDragOver = (e) => {
     e.preventDefault();
-    console.log("DragOver");
   };
 
   const onDrop = (e) => {
     e.preventDefault();
     let id = e.dataTransfer.getData("id");
     let currentData = draggable.find((item) => item.name == id);
-    let filteredArr = [...draggable].filter((item) => item.name != id);
-
+    let newDragabble = [...draggable].filter((item) => item.name != id);
     let newArr = [...droppable].concat(currentData);
-
-    console.log(currentData, filteredArr, newArr);
-    setdraggable(filteredArr);
-    setdroppable(newArr);
-    console.log("Drop", id);
+    console.log(currentData, newDragabble, newArr);
+    setDraggable(newDragabble);
+    setDroppable(newArr);
   };
 
   return (
