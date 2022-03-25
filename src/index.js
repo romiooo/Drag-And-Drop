@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './DragAndDrop.css';
+import DragAndDrop from './DragAndDrop';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DragAndDrop />
   </React.StrictMode>,
   document.getElementById('root')
 );
